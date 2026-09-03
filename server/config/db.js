@@ -1,14 +1,24 @@
 const mongoose = require('mongoose');
+const dns = require('dns');
 const config = require('./config');
+
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+} catch (e) {}
 
 let mongod = null;
 
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(config.mongoUri, {
-      serverSelectionTimeoutMS: 3000,
+      serverSelectionTimeoutMS: 10000,
     });
-    console.log(`[MongoDB] Connected successfully: ${conn.connection.host}`);
+    console.log(`[MongoDB] Connected successfully: ${conn.connection.host} (DB: ${conn.connection.name})`);
+
+    // Ensure clean base (Admin + Categories) is initialized
+    const { checkAndSeed } = require('../seed/seeder');
+    await checkAndSeed();
+
     return conn;
   } catch (error) {
     console.warn(`[MongoDB] Could not connect to configured URI (${config.mongoUri}): ${error.message}`);
