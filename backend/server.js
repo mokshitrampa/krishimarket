@@ -80,10 +80,9 @@ const authLimiter = rateLimit({
     message: 'Too many requests from this IP, please try again after 15 minutes.'
   }
 });
-app.use('/api/auth', authLimiter);
 
-// Health check endpoint
-app.get('/api/health', (req, res) => {
+// Health check endpoint (support both /health and /api/health)
+app.get(['/health', '/api/health'], (req, res) => {
   res.status(200).json({
     success: true,
     message: 'Farmer-to-Consumer Agri Marketplace API is running.',
@@ -92,20 +91,32 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Mount Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/farmers', farmerRoutes);
-app.use('/api/products', productRoutes);
-app.use('/api/cart', cartRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/reviews', reviewRoutes);
-app.use('/api/favorites', favoriteRoutes);
-app.use('/api/disputes', disputeRoutes);
-app.use('/api/categories', categoryRoutes);
-app.use('/api/admin', adminRoutes);
+// Mount Routes: support both /api/... and direct /... in case frontend omitted /api
+const routesList = [
+  ['/auth', authRoutes, authLimiter],
+  ['/farmers', farmerRoutes],
+  ['/products', productRoutes],
+  ['/cart', cartRoutes],
+  ['/orders', orderRoutes],
+  ['/reviews', reviewRoutes],
+  ['/favorites', favoriteRoutes],
+  ['/disputes', disputeRoutes],
+  ['/categories', categoryRoutes],
+  ['/admin', adminRoutes]
+];
+
+routesList.forEach(([path, router, limiter]) => {
+  if (limiter) {
+    app.use(`/api${path}`, limiter, router);
+    app.use(path, limiter, router);
+  } else {
+    app.use(`/api${path}`, router);
+    app.use(path, router);
+  }
+});
 
 // Catch 404 for unhandled API routes
-app.use('/api/*', (req, res) => {
+app.use(['/api/*', '/*'], (req, res) => {
   res.status(404).json({
     success: false,
     message: `Endpoint not found: ${req.method} ${req.originalUrl}`
