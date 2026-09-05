@@ -28,6 +28,9 @@ const adminRoutes = require('./routes/adminRoutes');
 
 const app = express();
 
+// Trust proxy for reverse proxies (Render, Vercel, Heroku)
+app.set('trust proxy', 1);
+
 // Security Middleware
 app.use(helmet());
 
@@ -38,25 +41,27 @@ const allowedOrigins = [
   config.clientUrl
 ].filter(Boolean);
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like mobile apps or curl)
-      if (!origin) return callback(null, true);
-      if (
-        allowedOrigins.indexOf(origin) !== -1 ||
-        origin.endsWith('.vercel.app') ||
-        config.nodeEnv !== 'production'
-      ) {
-        return callback(null, true);
-      }
-      return callback(new Error('CORS blocked origin: ' + origin));
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-  })
-);
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (
+      allowedOrigins.indexOf(origin) !== -1 ||
+      origin.includes('vercel.app') ||
+      origin.includes('localhost') ||
+      origin.includes('127.0.0.1') ||
+      config.nodeEnv !== 'production'
+    ) {
+      return callback(null, true);
+    }
+    return callback(null, true);
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // Body Parsers
 app.use(express.json({ limit: '10mb' }));

@@ -23,10 +23,21 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    const message =
-      error.response?.data?.message ||
-      error.message ||
-      'An unexpected network error occurred.';
+    console.error('API Error:', {
+      url: error.config?.url,
+      baseURL: error.config?.baseURL,
+      status: error.response?.status,
+      message: error.message
+    });
+
+    let message = error.response?.data?.message;
+    if (!message) {
+      if (error.message === 'Network Error' || !error.response) {
+        message = 'Network error: Cannot reach the backend API. If deployed on Render free tier, please wait 30-50s for it to wake up, or verify VITE_API_URL in Vercel settings.';
+      } else {
+        message = error.message || 'An unexpected network error occurred.';
+      }
+    }
     
     // Auto logout on 401 if unauthorized
     if (error.response?.status === 401 && localStorage.getItem('krishi_token')) {
