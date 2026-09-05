@@ -129,7 +129,7 @@ export const AdminLayout = () => {
           <div className="flex items-center gap-2 text-xs font-semibold text-slate-400">
             <span>Admin Control Plane</span>
             <span>/</span>
-            <span className="text-emerald-400 uppercase tracking-wider">KrishiDirect Governance</span>
+            <span className="text-emerald-400 uppercase tracking-wider">Krishi Market Governance</span>
           </div>
 
           <div className="flex items-center gap-4">

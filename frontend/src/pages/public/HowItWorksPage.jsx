@@ -13,7 +13,7 @@ export const HowItWorksPage = () => {
           How Direct Farm Buying Works
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          From verified farm onboarding to early morning harvest and kitchen delivery: here is how KrishiDirect establishes accountability every step of the way.
+          From verified farm onboarding to early morning harvest and kitchen delivery: here is how Krishi Market establishes accountability every step of the way.
         </p>
       </div>
 

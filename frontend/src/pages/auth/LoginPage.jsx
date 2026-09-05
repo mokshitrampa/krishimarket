@@ -48,7 +48,7 @@ export const LoginPage = () => {
             <Sprout size={24} />
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 font-serif">Welcome Back</h2>
-          <p className="text-xs text-slate-500">Sign in to your KrishiDirect account</p>
+          <p className="text-xs text-slate-500">Sign in to your Krishi Market account</p>
         </div>
 
         {error && (

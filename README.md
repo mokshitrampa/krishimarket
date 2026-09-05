@@ -1,4 +1,4 @@
-# 🌾 KrishiDirect — Farmer-to-Consumer Agri Marketplace
+# 🌾 Krishi Market — Farmer-to-Consumer Agri Marketplace
 
 A complete, production-grade **Farmer-to-Consumer Agricultural Commerce Platform** connecting regional growers directly with households. Eliminates predatory middleman markups, guarantees farm origin transparency, and provides advanced side-by-side farmer comparisons.
 
@@ -111,7 +111,7 @@ npm run dev
 * `/farmers/:id` — Farmer Storefront & Soil Practices
 * `/compare-farmers` — Side-by-Side 2-4 Farmer Comparison Matrix
 * `/how-it-works` — Consumer & Farmer Journey Workflow
-* `/about` — KrishiDirect Purpose & Supply Chain Ethics
+* `/about` — Krishi Market Purpose & Supply Chain Ethics
 * `/login` — Secure JWT Login
 * `/register/customer` — Customer Onboarding
 * `/register/farmer` — Farmer Application & Land Credentials

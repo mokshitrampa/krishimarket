@@ -13,7 +13,7 @@ export const AboutPage = () => {
           Decentralizing Agriculture, Empowering Growers
         </h1>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          KrishiDirect was conceived to address one of the greatest economic inefficiencies in food production: the massive gap between what consumers pay and what farmers receive.
+          Krishi Market was conceived to address one of the greatest economic inefficiencies in food production: the massive gap between what consumers pay and what farmers receive.
         </p>
       </div>
 
@@ -29,7 +29,7 @@ export const AboutPage = () => {
         </div>
 
         <div className="bg-forest-950 text-white p-8 rounded-3xl space-y-6">
-          <h3 className="text-xl font-bold font-serif text-harvest-400">The KrishiDirect Core Principles</h3>
+          <h3 className="text-xl font-bold font-serif text-harvest-400">The Krishi Market Core Principles</h3>
           <div className="space-y-4 text-xs sm:text-sm">
             <div className="flex items-start gap-3">
               <ShieldCheck size={20} className="text-emerald-400 shrink-0 mt-0.5" />

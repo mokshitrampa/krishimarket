@@ -148,7 +148,7 @@ export const HomePage = () => {
             A Fairer Deal For Everyone Who Cares About Real Food
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Standard food supply chains pass fresh crops through multiple middlemen, draining farmer profits while charging consumers inflated rates for cold-stored produce. KrishiDirect bridges both ends directly.
+            Standard food supply chains pass fresh crops through multiple middlemen, draining farmer profits while charging consumers inflated rates for cold-stored produce. Krishi Market bridges both ends directly.
           </p>
         </div>
 

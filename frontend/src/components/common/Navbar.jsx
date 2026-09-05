@@ -52,7 +52,7 @@ export const Navbar = () => {
             </div>
             <div>
               <span className="text-xl font-extrabold tracking-tight text-forest-950 block font-serif leading-none">
-                Krishi<span className="text-forest-600">Direct</span>
+                Krishi <span className="text-forest-600">Market</span>
               </span>
               <span className="text-[10px] tracking-wider uppercase font-semibold text-slate-400 block mt-0.5">
                 Farm to Table Marketplace
@@ -344,7 +344,7 @@ export const Navbar = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-base font-medium text-slate-700"
           >
-            About KrishiDirect
+            About Krishi Market
           </NavLink>
 
           {isAdmin && (

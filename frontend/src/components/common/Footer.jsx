@@ -14,7 +14,7 @@ export const Footer = () => {
                 <Sprout size={22} />
               </div>
               <span className="text-2xl font-bold tracking-tight text-white font-serif">
-                Krishi<span className="text-harvest-400">Direct</span>
+                Krishi <span className="text-harvest-400">Market</span>
               </span>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
@@ -118,7 +118,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={16} className="text-harvest-400 shrink-0" />
-                <span>support@krishidirect.com</span>
+                <span>support@krishimarket.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={16} className="text-harvest-400 shrink-0" />
@@ -138,7 +138,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© {new Date().getFullYear()} KrishiDirect Agriculture Platform. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Krishi Market Agriculture Platform. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link to="/about" className="hover:text-slate-400">Privacy Policy</Link>
             <Link to="/about" className="hover:text-slate-400">Terms of Service</Link>
