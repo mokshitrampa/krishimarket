@@ -1,5 +1,5 @@
 {
-  "name": "farmer-agri-marketplace-server",
+  "name": "farmer-agri-marketplace-backend",
   "version": "1.0.0",
   "description": "Backend API for Farmer-to-Consumer Agri Marketplace",
   "main": "server.js",

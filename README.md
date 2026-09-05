@@ -56,22 +56,22 @@ To ensure complete production authentication without shortcuts or demo switchers
 cd C:\Users\nbhuv\Desktop\farmer-agri-marketplace
 ```
 
-### 2. Install Root, Client, and Server Dependencies
+### 2. Install Root, Frontend, and Backend Dependencies
 ```bash
 # Install root dependencies
 npm install
 
-# Install server dependencies
-cd server && npm install && cd ..
+# Install backend dependencies
+cd backend && npm install && cd ..
 
-# Install client dependencies
-cd client && npm install && cd ..
+# Install frontend dependencies
+cd frontend && npm install && cd ..
 ```
 
 ### 3. Environment Variables
-Both `client` and `server` include pre-configured `.env` files:
+Both `frontend` and `backend` include pre-configured `.env` files:
 
-* `server/.env`:
+* `backend/.env`:
   ```env
   PORT=5000
   NODE_ENV=development
@@ -79,7 +79,7 @@ Both `client` and `server` include pre-configured `.env` files:
   JWT_SECRET=super_secure_krishidirect_jwt_secret_key_2026_dev
   CLIENT_URL=http://localhost:5173
   ```
-* `client/.env`:
+* `frontend/.env`:
   ```env
   VITE_API_URL=http://localhost:5000/api
   ```
@@ -142,17 +142,6 @@ npm run dev
 * `/admin/reviews` — Review moderation (approve / hide)
 * `/admin/disputes` — Dispute resolution desk
 * `/admin/analytics` — Macro logistics and cancellation rate analytics
-
----
-
-## 📖 Comprehensive Technical Documentation
-
-Detailed architecture specifications are located in the `documentation/` folder:
-* [PRD.md](documentation/PRD.md) — Product Requirements & KPIs
-* [API.md](documentation/API.md) — Complete REST API Reference
-* [DATABASE.md](documentation/DATABASE.md) — Schemas, Entity Relationships & Migration Guide
-* [DEPLOYMENT.md](documentation/DEPLOYMENT.md) — Vercel + Render + MongoDB Atlas Guide
-* [ARCHITECTURE.md](documentation/ARCHITECTURE.md) — Subsystem Diagrams & Data Flow
 
 ---
 
